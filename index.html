@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="▀▄▀▄▀▄ art, music, code ▄▀▄▀▄▀">
+	<meta name="keywords" content="art, music, code">
+	<meta name="author" content="Brandon Stone">
+	<meta property="og:title" content="🏡">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://brandonstone.cc/">
+	<meta property="og:description" content="▀▄▀▄▀▄ art, music, code ▄▀▄▀▄▀">
+	<title>brandonnnnnnnnnnnnn</title>
+	<link rel="icon" href="/src/favicon/favicon.ico">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+		@import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css');
+		:root {
+			--background: #D0CEBA;
+			--text: #417B5A;
+			--primary: #4B3F72;
+			--darkgreen-background: #1F2041;
+			--darkgreen-text: #4B3F72;
+		}
+		
+		/* Basic elements styling */
+		h1 {
+			font-family: "Jacquarda Bastarda 9", serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+		
+		body {
+			background-color: var(--background);
+			color: var(--text);
+			font-family: "Azeret Mono", serif;
+			font-optical-sizing: auto;
+			font-weight: 300;
+			font-style: normal;
+			width: 100vw;
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0;
+		}
+		
+		header {
+			top: 0;
+			background-color: var(--background);
+		}
+		
+		header h1 {
+			margin: 0 0 1rem;
+		}
+		
+		header, main, footer {
+			padding: 1rem;
+		}
+		
+		footer {
+			margin-bottom: 10px;
+		}
+		
+		p, a {
+			line-height: 120%;
+		}
+		
+		a, a:visited {
+			color: var(--primary);
+		}
+		
+		hr {
+			color: var(--background);
+			border: none;
+			border-bottom: 1px solid var(--text);
+		}
+		
+		ul {
+			list-style: none;
+			padding-left: 16px;
+		}
+		
+		/* Search box styling */
+		.search-container {
+			display: flex;
+			margin-top: 0.5rem;
+		}
+		
+		#search-input {
+			background-color: var(--background);
+			border: 1px solid var(--text);
+			padding: 0.4rem;
+			margin-right: 0.5rem;
+			font-family: "Hack", serif;
+			color: var(--text);
+			width: 222px;
+		}
+	  #search-input::placeholder {
+		  font-family: "Jacquarda Bastarda 9", serif;
+		  color: var(--text);
+		  opacity: 0.7;
+    }
+		
+    #search-input:focus {
+			outline: none;
+			border: 1px solid var(--primary);
+		}
+		
+		#search-button {
+			background-color: var(--text);
+			color: var(--background);
+			border: none;
+			padding: 0.4rem 0.8rem;
+			cursor: pointer;
+			font-family: "Jacquarda Bastarda 9", serif;
+			text-transform: lowercase;
+		}
+		
+		#search-button:hover {
+			background-color: var(--primary);
+		}
+		
+		/* Header link styling */
+		a.headerlink {
+			color: var(--text);
+			text-decoration: none;
+		}
+		
+		/* Canvas styling */
+		#maindisplay-wrapper {
+			position: relative;
+			height: 475px;
+		}
+		
+		#canvasdiv {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			display: block;
+			z-index: 1;
+		}
+		
+		#mycanvas {
+			width: 100%;
+			height: 100%;
+		}
+		
+		#codediv {
+			position: absolute;
+			height: 100%;
+			width: inherit;
+			display: block;
+			margin-left: 1rem;
+			z-index: 999;
+			opacity: 0;
+			transition: opacity 1s;
+		}
+		
+		#codediv > p {
+			background-color: rgba(65, 123, 90, 0.69);
+			color: #D0CEBA;
+		}
+		
+		#maindisplay-wrapper:hover > #codediv {
+			opacity: 1;
+		}
+		
+		/* Basic layout */
+		.homenavcontainer {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+		}
+		
+		
+		/* Media queries */
+		@media screen and (max-width: 800px) {
+			header, main, footer {
+				padding: 0.5rem;
+			}
+			
+			#search-input {
+				width: 120px;
+			}
+		}
+		
+		@media (max-width: 382px) {
+			#search-input {
+				width: 100px;
+			}
+			
+			#search-button {
+				padding: 0.4rem 0.5rem;
+			}
+		}
+	</style>
+	<script src="https://unpkg.com/hydra-synth"></script>
+	<script>
+		// Search functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			const searchInput = document.getElementById('search-input');
+			const searchButton = document.getElementById('search-button');
+			
+			function performSearch() {
+				const query = searchInput.value.trim();
+				if (query) {
+					window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+					searchInput.value = '';
+				}
+			}
+			
+			searchButton.addEventListener('click', performSearch);
+			searchInput.addEventListener('keypress', function(e) {
+				if (e.key === 'Enter') {
+					performSearch();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="homenavcontainer">
+	<header>
+		<h1><a class="headerlink" href="/index.html">welcome home</a></h1>
+		<nav>
+			<div class="search-container">
+				<input type="text" id="search-input" placeholder="search the web..." aria-label="Search">
+				<button id="search-button" aria-label="Submit search">go</button>
+			</div>
+		</nav>
+	</header>
+</div>
+<main id='content'>
+	<div id="maindisplay-wrapper">
+		<div id="canvasdiv">
+			<canvas id="mycanvas" width="1280" height="720"></canvas>
+		</div>
+	</div>
+	<script>
+		const hydra = new Hydra({
+			canvas: document.getElementById("mycanvas"),
+			detectAudio: false
+		});
+		osc(69, 0.1, 1)
+				.color(0.8156862745098039, 0.807843137254902, 0.7294117647058823)
+				.mult(osc(2, 0.75, 0)
+						.color(0.2549019607843137, 0.4823529411764706, 0.35294117647058826))
+				.rotate(0.69)
+				.modulate(o1)
+				.diff(o1)
+				.out(o0)
+		osc(21, 0.21, 0)
+				.mult(osc(42,.1,0)
+						.color(0.8156862745098039, 0.807843137254902, 0.7294117647058823))
+				.modulateRotate(o0, 0.69)
+				.rotate(0.69)
+				.out(o1)
+	</script>
+</main>
+</body>
+</html>
